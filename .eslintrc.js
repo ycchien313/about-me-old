@@ -18,7 +18,9 @@ module.exports = {
     'react',
   ],
   rules: {
-    semi: ['error', 'always'],
     quotes: ['error', 'single'],
+    semi: ['error', 'always'],
+    'react-hooks/exhaustive-deps': 0,
+    'react/display-name': 0,
   },
 };

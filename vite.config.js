@@ -1,11 +1,24 @@
 import fs from 'fs/promises';
 import react from '@vitejs/plugin-react';
+import vitePluginHtmlEnv from 'vite-plugin-html-env';
 
+import { resolve } from 'path';
 import { defineConfig } from 'vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    vitePluginHtmlEnv(),
+  ],
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, './src'),
+      components: resolve(__dirname, './src/components'),
+      pages: resolve(__dirname, './src/pages'),
+      styles: resolve(__dirname, './src/styles'),
+    },
+  },
   server: {
     open: true,
   },
